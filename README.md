@@ -1,73 +1,48 @@
-# Welcome to your Lovable project
+![Mahram Buddy — A prototype for documenting milk-kinship relationships](docs/banner.svg)
 
-## Project info
+# Mahram Buddy
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A React and TypeScript prototype exploring how milk-kinship records can be entered, reviewed, and browsed through a guided interface. Built with Vite, React Router, Tailwind CSS, shadcn/ui, and Framer Motion.
 
-## How can I edit this code?
+## What to explore
 
-There are several ways of editing your application.
+- A multi-step recording form for parents, nursing mothers, and children.
+- Public lookup and detail-page flows.
+- An administrative interface for reviewing people, records, and duplicates.
+- Animated form transitions and reusable input components.
 
-**Use Lovable**
+## Run locally
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Use Node.js 22 LTS and npm.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/nidaamalia/mahram-buddy.git
+cd mahram-buddy
+npm ci
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open the local URL printed by Vite.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+npm test
+```
 
-**Use GitHub Codespaces**
+## Code tour
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- [Catat.tsx](src/pages/Catat.tsx): guided record-entry flow.
+- [Cek.tsx](src/pages/Cek.tsx): lookup interface.
+- [admin pages](src/pages/admin): administration prototype.
+- [adminMockData.ts](src/data/adminMockData.ts): sample administrative data.
+- [App.tsx](src/App.tsx): route composition.
 
-## What technologies are used for this project?
+## Prototype boundaries
 
-This project is built with:
+The recording flow currently simulates saving; a success message does not mean a record has been persisted. Admin screens are demonstrations, not a production access-control system. Existing example tests do not establish coverage of the domain logic.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Use synthetic data in demos. Fields model sensitive family information, including identifiers and birth dates; a real service would need consent, authenticated access, data minimisation, and protected storage. The UI is not an authoritative determination of religious or legal relationships.
 
-## How can I deploy this project?
+## Next engineering milestones
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Separate domain rules from presentation, test relationship edge cases with expert-reviewed examples, and implement persistence and authorisation before accepting real records.
